@@ -150,7 +150,7 @@
             // 填充表格
             meetings.forEach(meeting => {
                 const row = document.createElement('tr');
-                const summaryText = meeting.Summary ? meeting.Summary : '该会议没有记录会议纪要';
+                const summaryText = meeting.Summary ? meeting.Summary : '<span style="color: red;">该会议没有记录会议纪要</span>';
                 // 使用 <pre> 标签或 CSS 样式来处理换行
                 row.innerHTML = `
                     <td>${meeting.meetingID}</td>
