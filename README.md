@@ -38,7 +38,7 @@ VoiceLink Intelligent Meeting Assistant
     └── REPORT.pdf
 ```
 
-+ **run.py: **The entry file for launching the application.
++ **run.py**: The entry file for launching the application.
 + **data** folder: It contains records of past meetings.
 + **static** folder: It contains some static image styles.
 + **templates** folder: This is where the html code for all front-end pages is stored.
