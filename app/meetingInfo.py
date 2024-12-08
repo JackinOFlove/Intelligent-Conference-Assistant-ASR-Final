@@ -95,7 +95,7 @@ def save_half_meeting():
     # 写入文件
     with open(file_path, mode='a', newline='', encoding='utf-8') as file:
         writer = csv.writer(file)
-        writer.writerow([meeting_id, meeting_title, start_time, end_time, persons])
+        writer.writerow([meeting_id, meeting_title, start_time, end_time, persons, ""])  # 确保每行都有结束符
 
     return jsonify({'message': '会议信息已保存'}), 201
 
