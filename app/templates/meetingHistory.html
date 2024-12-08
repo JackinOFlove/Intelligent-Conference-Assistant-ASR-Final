@@ -150,7 +150,7 @@
             // 填充表格
             meetings.forEach(meeting => {
                 const row = document.createElement('tr');
-                const summaryText = meeting.Summary ? `<button onclick="showSummary('${meeting.Summary}')">查看会议纪要</button>` : '此会议未生成会议纪要';
+                const summaryText = meeting.Summary ? meeting.Summary : '该会议没有记录会议纪要';
                 // 使用 <pre> 标签或 CSS 样式来处理换行
                 row.innerHTML = `
                     <td>${meeting.meetingID}</td>
@@ -172,7 +172,7 @@
                     second: '2-digit'
                 })}</td>
                     <td>${meeting.persons}</td>
-                    <td style="white-space: pre-wrap;">${meeting.Summary}</td>
+                    <td style="white-space: pre-wrap;">${summaryText}</td>
                 `;
                 tableBody.appendChild(row);
             });
@@ -196,31 +196,31 @@
 </head>
 
 <body>
-<button class="back-button" onclick="location.href='/'">返回主页</button>
-<h1>您的历史会议记录</h1>
-<table>
-    <thead>
-    <tr>
-        <th>会议序号</th>
-        <th>会议标题</th>
-        <th>开始时间</th>
-        <th>结束时间</th>
-        <th>参会人员</th>
-        <th>会议纪要</th>
-    </tr>
-    </thead>
-    <tbody id="meetingsTableBody">
-    <!-- 会议记录将填充在这里 -->
-    </tbody>
-</table>
+    <button class="back-button" onclick="location.href='/'">返回主页</button>
+    <h1>您的历史会议记录</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>会议序号</th>
+                <th>会议标题</th>
+                <th>开始时间</th>
+                <th>结束时间</th>
+                <th>参会人员</th>
+                <th>会议纪要</th>
+            </tr>
+        </thead>
+        <tbody id="meetingsTableBody">
+            <!-- 会议记录将填充在这里 -->
+        </tbody>
+    </table>
 
-<!-- 弹出框 -->
-<div id="myModal" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <p id="modalContent"></p>
+    <!-- 弹出框 -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <p id="modalContent"></p>
+        </div>
     </div>
-</div>
 </body>
 
 </html>

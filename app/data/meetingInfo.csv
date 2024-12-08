@@ -1,43 +1,16 @@
 meetingID,meetingTitle,startTime,endTime,persons,Summary
-2,团队会议,2023-10-01T10:00:00,2023-10-01T11:00:00,ljk，hjx，lt,"从你的描述来看，这段话似乎是在讨论某个特定情境下的费用问题以及如何处理这种情况的建议。根据你的描述，说话者（SpeakerID: 1）建议在这种情境下直接在当前页面上说明需要支付的费用，而不是去深入分析或评估受害者的具体情况或后果。说话者认为这样的处理方式是合理的。
+1,团队会议,2024-10-01T10:00:00,2024-10-01T11:00:00,ljk，hjx，lt,从你的描述来看，这段话似乎是在讨论某个特定情境下的费用问题以及如何处理这种情况的建议。根据你的描述，说话者（SpeakerID: 1）建议在这种情境下直接在当前页面上说明需要支付的费用，而不是去深入分析或评估受害者的具体情况或后果。说话者认为这样的处理方式是合理的。
+2,测试,2024-12-08T12:31:51.258Z,2024-12-08T12:32:35.671Z,"ljk, lt",
+3,语音识别小组会议,2024-12-08T12:44:08.162Z,2024-12-08T12:45:24.134Z,"Juekai Lin, Tong Li, Jingxiao Han","从对话内容可以看出，团队成员已经就语音识别项目的分工达成了一致意见。以下是具体的分工情况：
 
-为了更好地理解这段对话，可能需要更多的上下文信息，比如：
+- **SpeakerID: 1** 负责前后端系统的搭建。
+- **SpeakerID: 2** 负责后端接口部分，计划使用人工智能技术实现语音的实时转录和说话人分离。
+- **SpeakerID: 3** 设计前端部分，具体包括三个界面：实时会议转写、生成会议纪要的AI助手以及历史会议信息查询功能。
 
-1. 这个情境具体是什么？例如，这可能是关于某个在线服务、产品购买还是其他类型的交易。
-2. “受害人”指的是谁？他们为何被认为是“受害人”，以及他们与情境的关系是什么？
-3. 是否有具体的收费标准或规则被提及？
+最后，**SpeakerID: 1** 表示大家分工明确，并宣布会议结束。这样的分工有助于团队高效地推进项目进展。"
+4,测试2,2024-12-08T12:50:57.011Z,2024-12-08T12:51:59.659Z,"mlx, ljk","从对话内容来看，两位说话者讨论的内容似乎不相关。
 
-如果你有更多的背景信息或具体问题，欢迎提供，这样我可以更准确地理解和帮助你。"
-6,你好,2024-12-08T08:04:00.869Z,1970-01-01T00:00:00.000Z,"lt, hjx","从这段对话中，我们可以提取到以下信息：
+- SpeakerID: 1 在20:50:58提到的是关于隧道运维管理员上传隧道内部图像，并进行全景拼接，且选择公开检测的信息。
+- SpeakerID: 2 在20:51:10提到了一些电子商务平台（如华为商城、京东、爱淘宝、天猫）以及PC端的新版系统和专辑大师，似乎是与学习办公有关的内容。
 
-- **Speaker 1 (韩静香)** 在时间 16:06:10 表达了一些内容，其中包括测试的开始，以及提到“保护卫保护自身”。
-- **Speaker 2** 在时间 16:06:37 只简单地回应了一个“耶”。
-
-韩静香似乎在进行某种测试，并提到了保护自己。不过，这段话中有一些语句可能不够清晰或完整，因此理解起来有些困难。如果有更多背景信息或者上下文，可能会更好地理解这段对话的内容和目的。"
-7,你好,2024-12-08T08:06:09.240Z,1970-01-01T00:00:00.000Z,"lt, hjx","从这段对话中，我们可以提取到以下信息：
-
-- **Speaker 1 (韩静香)** 在时间 16:06:10 表达了一些内容，其中包括测试的开始，以及提到“保护卫保护自身”。
-- **Speaker 2** 在时间 16:06:37 只简单地回应了一个“耶”。
-
-韩静香似乎在进行某种测试，并提到了保护自己。不过，这段话中有一些语句可能不够清晰或完整，因此理解起来有些困难。如果有更多背景信息或者上下文，可能会更好地理解这段对话的内容和目的。"
-8,会议1,2024-12-08T08:23:50.797Z,2024-12-08T08:24:48.585Z,"hjx, 11","从对话内容来看，似乎有部分内容缺失或不完整。第一句是韩信翔的自我介绍，“你好，我是韩信翔。”第二句开始是“你好，你怎么不？”，但这句话不完整，不清楚后面的内容是什么。
-
-如果需要继续这个对话，可能需要更多的上下文信息。您希望我如何帮助补充或继续这段对话呢？"
-9,1,2024-12-08T09:18:10.396Z,1970-01-01T00:00:00.000Z,"hjx, 11","It seems like there is a conversation between two people speaking in different languages. The first speaker (SpeakerID: 1) greets and introduces themselves in Chinese, saying ""你好，我是你爸爸"" which translates to ""Hello, I am your father."" The second speaker (SpeakerID: 2), at 13 seconds later, responds in English with ""hello.""
-
-If you need any translation or further assistance with this interaction, feel free to let me know!"
-10,1,2024-12-08T09:18:10.396Z,2024-12-08T09:19:23.594Z,"hjx, 11","It seems like there is a conversation between two people speaking in different languages. The first speaker (SpeakerID: 1) greets and introduces themselves in Chinese, saying ""你好，我是你爸爸"" which translates to ""Hello, I am your father."" The second speaker (SpeakerID: 2), at 13 seconds later, responds in English with ""hello.""
-
-If you need any translation or further assistance with this interaction, feel free to let me know!"
-11,1,2024-12-08T09:25:39.932Z,1970-01-01T00:00:00.000Z,"后进先出, 按顺序","It seems like there is a conversation between two people speaking in different languages. The first speaker (SpeakerID: 1) greets and introduces themselves in Chinese, saying ""你好，我是你爸爸"" which translates to ""Hello, I am your father."" The second speaker (SpeakerID: 2), at 13 seconds later, responds in English with ""hello.""
-
-If you need any translation or further assistance with this interaction, feel free to let me know!"
-12,测试1,2024-12-08T09:51:04.382Z,2024-12-08T09:52:55.836Z,"ljk, lt, hjx","这段对话似乎有些混乱且不连贯，可能是因为口误、背景噪音或转录错误造成的。我会尝试整理并解释一下：
-
-- **Speaker 1** 首先说了“阿布拉吉阿阿布拉”，这句话看起来像是某种特定表达或名字，但具体含义不明。
-- **Speaker 1** 接着说“我是觉得我这个没有对我就是混蛋。你是哪个老师？”，这部分内容可能是对某个情况或人的评价，后面又问对方是不是老师，但这两句话之间缺乏明显的逻辑联系。
-- **Speaker 2** 回应时提到了“写太多不行”、“赵安东”以及“3000以上4000左右的”，这似乎是在讨论某个与写作或者费用相关的话题，但是信息不够完整，难以明确其具体含义。
-- **Speaker 1** 然后说“我也是你，就是我我就是我就是我现在就是我刚刚试听”，这句话非常模糊，很难理解其确切意思。
-- 最后，**Speaker 2** 提到“先从你说话的时候把这个关了”，这可能是建议关闭某些设备或功能，紧接着又提到“你很忙”和“刚搞完OK了”，这似乎在讨论某人忙碌的状态。
-
-由于对话内容较为零散且不清晰，上述分析基于现有文本尽可能做出合理推测。如果需要更准确的理解，请提供更多的上下文信息或澄清。"
+如果您需要进一步的帮助或有其他问题，请告诉我！"
