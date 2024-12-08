@@ -16,9 +16,9 @@ VoiceLink Intelligent Meeting Assistant
     |   │   └── ......
     |   ├── templates
     |   |	├── home.htnl
-    |   | 	├── meetingAssistant.html
-    |   |   ├── meetingHistory.html
-    |   |   └── meetingNote.html
+    |   |	├── meetingAssistant.html
+    |   |	├── meetingHistory.html
+    |   |	└── meetingNote.html
     |   ├── __init__.py
     |   ├── backendRoutes.py
     |   ├── meetingInfo.py
