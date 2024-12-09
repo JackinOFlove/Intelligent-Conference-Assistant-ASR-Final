@@ -129,11 +129,11 @@
             cursor: pointer;
             transition: background-color 0.3s, transform 0.2s;
             position: absolute;
-            /* 绝对定位 */
+            /* absolute positioning */
             top: 20px;
-            /* 距离顶部20px */
+            /* 20px from top */
             left: 20px;
-            /* 距离左侧20px */
+            /* 20px from left */
         }
 
         .back-button:hover {
@@ -204,24 +204,24 @@
         let currentStreamResponse = '';
         let recognition;
         let isRecognizing = false;
-        let finalTranscript = ''; // 移动到全局
-        let isFirst=false;
+        let finalTranscript = ''; // move to global
+        let isFirst = false;
 
 
         window.onload = async function () {
             const meetingText = localStorage.getItem('meetingText');
-            console.log("meetingText",meetingText);
-            const title=localStorage.getItem("title");
-            console.log("title",title);
+            console.log("meetingText", meetingText);
+            const title = localStorage.getItem("title");
+            console.log("title", title);
 
             if (meetingText) {
                 const chatBox = document.getElementById('userInput');
                 chatBox.innerText = meetingText;
                 localStorage.removeItem('meetingText');
-                isFirst=true;
+                isFirst = true;
             }
 
-            // 自动发送“请生成会议纪要的提示词”
+            // automatically send "please generate meeting summary"
             await sendMessage("请生成会议纪要");
         };
 
@@ -233,7 +233,7 @@
 
             if (!userInput.value.trim() || isStreaming) return;
 
-            // 添加用户消息
+            // add user message
             chatBox.appendChild(createMessageElement(userInput.value.trim(), 'user'));
 
             const userMessage = userInput.value;
@@ -242,7 +242,7 @@
             sendButton.disabled = true;
             currentStreamResponse = '';
 
-            // 创建流式响应的显示元素
+            // create streaming response display element
             const streamingDiv = createMessageElement('', 'assistant streaming');
             chatBox.appendChild(streamingDiv);
 
@@ -297,24 +297,24 @@
                     }
                 }
 
-                // 移除流式响应元素，添加最终响应
+                // remove streaming response element, add final response
                 chatBox.removeChild(streamingDiv);
                 if (currentStreamResponse) {
                     const responseElement = createMessageElement(currentStreamResponse, 'assistant');
                     chatBox.appendChild(responseElement);
 
-                    // 添加保存按钮
-                    if(isFirst===true){
+                    // add save button
+                    if (isFirst === true) {
                         const saveButton = document.createElement('button');
                         saveButton.textContent = '保存纪要';
                         console.log("currentStreamResponse before saveSummary:", currentStreamResponse);
-                        // 将 currentStreamResponse 作为自定义属性添加到按钮
+                        // add currentStreamResponse as a custom attribute to the button
                         saveButton.dataset.currentStreamResponse = currentStreamResponse;
                         saveButton.onclick = async () => {
                             try {
                                 const title = localStorage.getItem("title");
                                 console.log(title);
-                                // 从按钮的自定义属性中获取 currentStreamResponse
+                                // get currentStreamResponse from button's custom attribute
                                 const currentStreamResponse = saveButton.dataset.currentStreamResponse;
                                 console.log(currentStreamResponse);
 
@@ -323,12 +323,12 @@
                                     return;
                                 }
 
-                                // 移除本地存储中的 title
+                                // remove title from local storage
                                 localStorage.removeItem("title");
 
-                                // 发送 POST 请求保存会议纪要
+                                // send POST request to save meeting summary
                                 const response = await axios.post('/meetingInfo/saveMeeting', {
-                                    meetingTitle: title, // 需要替换为实际的会议ID
+                                    meetingTitle: title, // replace with actual meeting ID
                                     Summary: currentStreamResponse
                                 }, {
                                     headers: {
@@ -336,20 +336,20 @@
                                     }
                                 });
 
-                                // 处理响应
+                                // handle response
                                 if (response.data.error) {
                                     alert('保存失败: ' + response.data.error);
                                 } else {
-                                    alert('纪要已保存成功');
+                                    alert('会议纪要已保存成功');
                                 }
                             } catch (error) {
                                 console.error('保存失败:', error);
-                                alert('保存失败，请稍后重试。');
+                                alert('保存失败，经过保存的会议才可以生成会议纪要');
                             }
                         };
 
                         responseElement.appendChild(saveButton);
-                        isFirst=false
+                        isFirst = false
                     }
 
                 }
@@ -366,17 +366,17 @@
             }
         }
 
-        async function saveSummary(title,summary) {
+        async function saveSummary(title, summary) {
             try {
-                console.log("summary",summary)
-                console.log("title",title)
+                console.log("summary", summary)
+                console.log("title", title)
                 localStorage.removeItem("title")
                 const response = await axios.post('/meetingInfo/saveMeeting', {
-                    meetingTitle:title, // 需要替换为实际的会议ID
+                    meetingTitle: title, // replace with actual meeting ID
                     Summary: summary
                 });
 
-                // 处理响应
+                // save summary
                 if (response.data.error) {
                     alert('保存失败: ' + response.data.error);
                 } else {
@@ -394,7 +394,7 @@
             div.textContent = content;
 
 
-            return div; // 移除复制按钮
+            return div; // remove copy button
         }
 
         function scrollToBottom() {
@@ -422,13 +422,13 @@
             } else {
                 recognition = new webkitSpeechRecognition();
                 recognition.lang = 'zh-CN';
-                recognition.continuous = true; // 设置为true以便增量输出
-                recognition.interimResults = true; // 启用中间结果
+                recognition.continuous = true; // set to true for incremental output
+                recognition.interimResults = true; // enable intermediate results
 
                 recognition.onstart = function () {
                     console.log('语音识别开始');
                     document.getElementById('voiceButton').textContent = '⏹';
-                    finalTranscript = ''; // 开始时清空最终结果
+                    finalTranscript = ''; // clear final result
                 };
 
                 recognition.onresult = function (event) {

@@ -103,7 +103,7 @@
             font-size: 20px;
             color: #1976d2;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            /* 使用现代字体 */
+            /* use modern font */
 
         }
     </style>
@@ -149,14 +149,14 @@
             recognition.maxAlternatives = 1;
 
             document.getElementById('recordButton').classList.add('recognizing');
-            document.getElementById('recordingStatus').style.display = 'block'; // 显示正在录音
+            document.getElementById('recordingStatus').style.display = 'block'; //show recording status
 
             recognition.start();
 
             recognition.onresult = function (event) {
                 const transcript = event.results[event.resultIndex][0].transcript;
                 console.log('识别结果: ', transcript);
-                document.getElementById('recordingStatus').style.display = 'none'; // 隐藏正在录音
+                document.getElementById('recordingStatus').style.display = 'none'; //hide recording status
 
                 if (transcript.includes('实时记录') || transcript.includes('记录') || transcript.includes('实时')) {
                     document.getElementById('transcript').innerText = '即将前往智能会议记录...';
@@ -173,12 +173,12 @@
             recognition.onerror = function (event) {
                 console.error('录音错误: ', event.error);
                 alert('录音失败，请重试。');
-                document.getElementById('recordingStatus').style.display = 'none'; // 隐藏正在录音
+                document.getElementById('recordingStatus').style.display = 'none'; // show recording status
             };
 
             recognition.onend = function () {
                 document.getElementById('recordButton').classList.remove('recognizing');
-                document.getElementById('recordingStatus').style.display = 'none'; // 隐藏正在录音
+                document.getElementById('recordingStatus').style.display = 'none'; // hide recording status
             };
         }
     </script>

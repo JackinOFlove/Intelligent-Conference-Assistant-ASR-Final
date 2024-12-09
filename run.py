@@ -1,17 +1,17 @@
-# 在这里导入 create_app 函数
+# import create_app function here
 from app import create_app
 from flask_cors import CORS
 
 app = create_app()
 
-# 开发环境下允许所有跨域请求
+# allow all cross-domain requests in development environment
 CORS(app, supports_credentials=True)
 
 if __name__ == "__main__":
-    # 允许所有域名访问
+    # allow all domains to access
     app.run(
-        debug=True,  # 开启调试模式
-        host='0.0.0.0',  # 允许所有IP访问
-        port=5000,  # 指定端口
-        threaded=True  # 启用多线程
+        debug=True,  
+        host='0.0.0.0',  
+        port=5000,  
+        threaded=True  
     )

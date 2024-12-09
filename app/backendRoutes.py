@@ -9,40 +9,40 @@ import requests
 import datetime
 import threading
 
-# 常量定义
+# constant definition
 ALIYUN_ACCESS_KEY = "LTAI5tS2J6nkZbbbvMaS89RR"
 ALIYUN_SECRET_KEY = "cHTFlHbXt613gz9iaeTLom9jM4xGkR"
 APP_KEY = "6KcGXKYqXTgjjs"
 REGION_ID = "cn-beijing"
 
-# API 配置
+# API configuration
 API_CONFIG = {
     'domain': 'tingwu.cn-beijing.aliyuncs.com',
     'version': '2023-09-30',
     'protocol': 'https'
 }
 
-# 支持的语言列表
+# supported language list
 SUPPORTED_LANGUAGES = ['cn', 'en', 'yue', 'ja', 'ko', 'multilingual']
 
 REQUEST_INTERVAL=10
 
 
-# 创建蓝图
+# create blueprint
 meeting_bp = Blueprint('meeting', __name__)
 
-# 存储活跃会议信息
+# store active meeting information
 active_meetings = {}
 
 
 def get_client():
-    """获取阿里云客户端"""
+    """get aliyun client"""
     credentials = AccessKeyCredential(ALIYUN_ACCESS_KEY, ALIYUN_SECRET_KEY)
     return AcsClient(region_id=REGION_ID, credential=credentials)
 
 
 def create_common_request(domain, version, protocol_type, method, uri):
-    """创建通用请求"""
+    """create common request"""
     ali_request = CommonRequest()
     ali_request.set_accept_format('json')
     ali_request.set_domain(domain)
@@ -55,7 +55,7 @@ def create_common_request(domain, version, protocol_type, method, uri):
 
 
 def execute_stop_operation(task_id):
-    """执行停止操作"""
+    """execute stop operation"""
     try:
         client = get_client()
         body = {
@@ -86,14 +86,14 @@ def execute_stop_operation(task_id):
 
 def poll_meeting(task_id):
     """
-    轮询会议状态并定期执行over操作
-    returns: 最后一次的完整响应结果
+    poll meeting status and execute over operation periodically
+    returns: the last complete response
     """
     final_response = None
     try:
         if execute_stop_operation(task_id):
             while task_id in active_meetings:
-                # 获取完整的任务信息
+                # get complete task information
                 client = get_client()
                 status_request = create_common_request(
                     API_CONFIG['domain'],
@@ -113,7 +113,7 @@ def poll_meeting(task_id):
 
                 print(f"Status response: {json.dumps(response_data, indent=4, ensure_ascii=False)}")
 
-                # 如果完成
+                # if completed
                 if status_result == 'COMPLETED':
                     final_response = response_data
                     break
@@ -128,7 +128,7 @@ def poll_meeting(task_id):
 
 def init_parameters(language='cn', speaker_count=2):
     print(speaker_count)
-    """初始化会议参数"""
+    """initialize meeting parameters"""
     body = {
         'AppKey': APP_KEY,
         'Input': {
@@ -153,7 +153,7 @@ def init_parameters(language='cn', speaker_count=2):
 
 @meeting_bp.route('/initMeetingInfo', methods=['POST'])
 def start_meeting():
-    """开始会议"""
+    """start meeting"""
     try:
         print("准备开始会议")
         data = request.json
@@ -192,7 +192,7 @@ def start_meeting():
         active_meetings[task_id] = True
 
 
-        # 返回格式化的响应
+        # return formatted response
         return jsonify({
             "code": 200,
             "message": "success",
@@ -206,20 +206,19 @@ def start_meeting():
 
 
 
-
 @meeting_bp.route('/<task_id>/record', methods=['GET'])
 def generate_meeting_record(task_id):
     print("task_id:",task_id)
     print("正在生成会议记录")
     active_meetings[task_id] = True
-    """生成会议记录"""
+    """generate meeting record"""
     try:
         response_data = poll_meeting(task_id)
 
         if not response_data:
             return jsonify({"error": "获取任务状态失败"}), 500
 
-        # 返回转写结果URL
+        # return transcription result URL
         transcription_url = response_data['Data']['Result']['Transcription']
         print("url=",transcription_url)
 

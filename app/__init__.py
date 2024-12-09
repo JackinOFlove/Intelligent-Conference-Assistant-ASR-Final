@@ -1,12 +1,12 @@
 from flask import Flask
-from flask_cors import CORS  # 添加这行
+from flask_cors import CORS  
 from .meetingInfo import meetingInfo_routes
 
 
 def create_app():
     app = Flask(__name__)
 
-    # 启用 CORS，允许所有域名访问 API
+    # enable CORS, allow all domains to access API
     CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 

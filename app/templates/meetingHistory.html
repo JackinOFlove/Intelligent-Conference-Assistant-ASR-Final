@@ -121,11 +121,11 @@
             cursor: pointer;
             transition: background-color 0.3s, transform 0.2s;
             position: absolute;
-            /* 绝对定位 */
+            /* absolute positioning */
             top: 20px;
-            /* 距离顶部20px */
+            /* 20px from top */
             left: 20px;
-            /* 距离左侧20px */
+            /* 20px from left */
         }
 
         .back-button:hover {
@@ -139,7 +139,7 @@
             const meetings = await response.json();
             const tableBody = document.getElementById('meetingsTableBody');
 
-            // 清空表格
+            // clear table
             tableBody.innerHTML = '';
 
             if (meetings.length === 0) {
@@ -147,11 +147,11 @@
                 return;
             }
 
-            // 填充表格
+            // fill table
             meetings.forEach(meeting => {
                 const row = document.createElement('tr');
                 const summaryText = meeting.Summary ? meeting.Summary : '<span style="color: red;">该会议没有记录会议纪要</span>';
-                // 使用 <pre> 标签或 CSS 样式来处理换行
+                // use <pre> tag or CSS style to handle line breaks
                 row.innerHTML = `
                     <td>${meeting.meetingID}</td>
                     <td>${meeting.meetingTitle}</td>
@@ -190,7 +190,7 @@
             modal.style.display = "none";
         }
 
-        // 页面加载时获取会议记录
+        // get meetings when page loads
         window.onload = fetchMeetings;
     </script>
 </head>
@@ -210,11 +210,11 @@
             </tr>
         </thead>
         <tbody id="meetingsTableBody">
-            <!-- 会议记录将填充在这里 -->
+            <!-- meetings will be filled here -->
         </tbody>
     </table>
 
-    <!-- 弹出框 -->
+    <!-- modal -->
     <div id="myModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
